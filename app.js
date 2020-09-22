@@ -7,9 +7,6 @@ const {MongoClient} = require('mongodb');
 const uri = "mongodb+srv://admin:D3m0n10_666@cluster0.sx8ja.mongodb.net/aps?retryWrites=true&w=majority";
 
 
-
-
-
 //Middlewares
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
