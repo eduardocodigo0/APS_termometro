@@ -2,7 +2,7 @@
 const express = require('express')
 const app = express()
 const path = require('path');
-const port = 8080
+
 const {MongoClient} = require('mongodb');
 const uri = "mongodb+srv://admin:D3m0n10_666@cluster0.sx8ja.mongodb.net/aps?retryWrites=true&w=majority";
 
@@ -58,6 +58,8 @@ app.get('/', (req, res) => {
 })
 
 //Iniciando Sercer
+const port = process.env.PORT || 8080
+
 app.listen(port, () => {
   console.log(`Server Rodando na porta: ${port}`);
 })
