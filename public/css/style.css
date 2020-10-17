@@ -26,14 +26,11 @@ body{
 
 }
 
-#myChart{
-    width: 800 ;
-    height: 450 ;
-}
 .grafico{
     text-align: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     width: 80%;
+    height: 50%;
    margin: 0% 10%;
     background-color: white;  
   
