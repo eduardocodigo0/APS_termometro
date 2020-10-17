@@ -47,12 +47,44 @@ app.get('/', (req, res) => {
     }
 
 });
-
-
-    
-
-  
+ 
 })
+
+app.get('/ultimos_10', (req, res) => {
+
+    MongoClient.connect(uri, (err, db) =>{
+  
+      if(!err){
+  
+          let dbo = db.db('aps');
+          
+  
+      dbo.collection("temperatura").find()
+          .sort({_id:-1})
+          .limit(10)
+          .toArray((err, result) =>{
+  
+              if(!err){
+                  //console.log(result);
+                  let dados = [];
+                  result.forEach((item) =>{
+                      console.log(item.temperatura);
+                      dados.push(item);
+                      
+                  });
+  
+  
+                  db.close();
+                  res.send(JSON.stringify(dados));
+              }
+  
+          });
+  
+      }
+  
+  });
+})
+    
 
 //Iniciando Sercer
 const port = process.env.PORT || 8080

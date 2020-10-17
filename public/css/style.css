@@ -13,7 +13,7 @@ body{
 
     width: 100%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    position: fixed;
+
     background-size:cover;
     background-repeat:no-repeat;
     min-height:100px;
@@ -22,10 +22,22 @@ body{
     text-align: center;
     align-self: center;
     padding: 2%;
-    margin-top: 20%;
+    margin-top: 2%;
 
 }
 
-
+#myChart{
+    width: 800 ;
+    height: 300 ;
+}
+.grafico{
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 80%;
+   margin: 0% 10%;
+    background-color: white;  
+  
+    
+}
 
 

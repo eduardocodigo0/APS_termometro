@@ -7,6 +7,7 @@
      <!-- Compiled and minified CSS -->
     
      <link rel="stylesheet" href="css/style.css">
+     <link rel="stylesheet" href="css/Chart.min.css">
 </head>
 <body >   
     <div class="main">
@@ -22,8 +23,65 @@
             <% } %>
             
         </div>
+
+        <div class="grafico">
+            <h2>Ultimos Registros</h2>
+            <canvas id="myChart" style="width:100%;height:100%;">
+
+            </canvas>
+        </div>
         
     </div>
-   
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="js/Chart.min.js" ></script>
+   <script>
+       let ctx = document.getElementById('myChart');
+       $.get( "/ultimos_10", function( data ) {
+            $( ".result" ).html( data );
+
+            data = JSON.parse(data);
+            label = []
+            temp = []
+
+            data.forEach(element => {
+
+                console.log(element);
+                label.push(element.data);
+                temp.push(element.temperatura);
+
+            });
+
+
+            var myChart = new Chart(ctx, {
+            type: 'line',
+           
+            data: {
+                
+                responsive:true,
+                maintainAspectRatio: false,
+                labels: label,
+                datasets: [{
+                    label: '# Temperatura C°',
+                    data: temp,
+                    
+                
+                    borderWidth: 3,
+                    borderColor: 'rgba(200, 0, 0, 0.5)'
+                }]
+            },
+            options: {
+                elements: {
+                    line: {
+                        tension: 0,
+                        fill: false,
+                    }
+                }
+            }
+
+                    });
+       
+  
+        });
+   </script>
 </body>
 </html>
